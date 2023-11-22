@@ -1,6 +1,6 @@
 : 3d.matrix
   create
-    ( a b c )
+    ( x y z )
     dup
     ,
     swap
@@ -11,20 +11,20 @@
     ,
     *
     *
-    3 + \ Drei Zellen mehr allotieren!
-    4 \ Cell size! allot works with bytes!
-    * \ So we have to multiply it!
+    3 +   \ ALLOT three cells more!
+    4     \ Cell size! ALLOT works with bytes!
+    *     \ So we have to multiply it!
     allot
   does>
     ( a b c pfa )
-    \ Stackcheck
+    \ Stack check
     depth 1 =  \ no parameters, just <matrix> = pfa
     if
-      cr                 \ .pfa.
-      dup                \ .pfa. .pfa.
+      cr                    \ .pfa.
+      dup                   \ .pfa. .pfa.
       ."      PFA = " . cr  \ .pfa.
-      dup                \ .pfa. .pfa.
-      @                  \ .pfa. pfa
+      dup                   \ .pfa. .pfa.
+      @                     \ .pfa. pfa
       ."    c (z) = " . cr  \ .pfa.
       dup
       1 cells +
