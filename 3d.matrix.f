@@ -1,16 +1,16 @@
 : 3d.matrix
   create
     ( x y z )
-    dup
-    ,
-    swap
-    dup
-    ,
-    rot
-    dup
-    ,
-    *
-    *
+    dup   \ x y z z
+    ,     \ x y z
+    swap  \ x z y
+    dup   \ x z y y
+    ,     \ x z y
+    rot   \ z y x
+    dup   \ z y x x
+    ,     \ z y x
+    *     \ z yx
+    *     \ zyx  That's the amount of payload cells
     3 +   \ ALLOT three cells more!
     4     \ Cell size! ALLOT works with bytes!
     *     \ So we have to multiply it!
